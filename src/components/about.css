@@ -1,0 +1,111 @@
+.about-page {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* LEFT = Artist + text */
+.about-left {
+  flex: 1;
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Artist card */
+.about-artist-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* MUCH BIGGER, RESPONSIVE ARTIST IMAGE */
+.artist-photo {
+  width: 85%;         /* DESKTOP size */
+  max-width: 320px;   /* allow it to get big */
+  min-width: 160px;   /* decent lower bound */
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.artist-name {
+    font-family:'Dancing Script', cursive;
+  margin-top: 20px;
+  font-size: 36px; /* scale up to match bigger image */
+  font-weight: 600;
+}
+
+/* Body text */
+.about-content {
+  max-width: 600px;
+  line-height: 1.7;
+  font-size: 18px;
+  color:darkslategray;
+      background-color: rgba(255, 255, 240, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* RIGHT = Vertical header image */
+.about-right {
+  width: 40%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.about-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .artist-photo {
+    width: 55%;
+    max-width: 300px;
+  }
+
+  .artist-name {
+    font-size: 34px;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 900px) {
+  .about-page {
+    flex-direction: column;
+  }
+
+  .about-right {
+    width: 100%;
+    height: 300px;
+  }
+
+  .artist-photo {
+    width: 75%;       /* nice and big on phones */
+    max-width: 260px;
+  }
+
+  .artist-name {
+    font-size: 32px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 500px) {
+  .artist-photo {
+    width: 85%;
+    max-width: 240px;
+  }
+
+  .artist-name {
+    font-size: 28px;
+  }
+}

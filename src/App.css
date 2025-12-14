@@ -1,0 +1,207 @@
+/* ===== Reset & Body ===== */
+
+body {
+margin:0;
+  font-family: Arial, sans-serif;
+  background-image: url("/images/background-watercolor-3.jpg");
+  background-size: cover;        /* Makes it responsive & full width */
+  background-position: center;   /* Centers the image */
+  background-repeat: no-repeat;  /* Prevents tiling */
+  background-attachment: scroll;  /* Optional: keeps it fixed on scroll */
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* logo left, links right */
+  align-items: center;
+  background: #fff;
+  padding: 15px 5%; /* use percentage for responsive side padding */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar nav a.active,
+.navbar nav a:hover {
+  color: #0077ff;
+}
+
+.navbar nav a.active::after,
+.navbar nav a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: #0077ff;
+  border-radius: 2px;
+}
+
+/* ===== Main content ===== */
+main {
+  padding-top: 100px; /* space for fixed navbar */
+  width: 100%;
+  max-width: none;       /* remove restriction */
+  margin: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
+
+/* ===== Pages ===== */
+.page {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.page h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* ===== Gallery Grid ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+img{
+border-style:solid;
+border-width:3px;
+
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== Lightbox ===== */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.lightbox button {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.lightbox .close {
+  top: 20px;
+  right: 30px;
+}
+
+.lightbox .prev {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox .next {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+  main {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 5%;
+  }
+
+  .navbar nav {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  main {
+    padding-top: 140px; /* more space for taller mobile navbar */
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
